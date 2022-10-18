@@ -2,7 +2,7 @@ package com.cohart20.pojo;
 
 public class User {
 	
-	private int id;
+	private String id;
 	private String password;
 	private String name;
 	private String email;
@@ -11,7 +11,7 @@ public class User {
 		
 	}
 	
-	public User(int id, String password, String name, String email) {
+	public User(String id, String password, String name, String email) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -19,11 +19,11 @@ public class User {
 		this.email = email;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

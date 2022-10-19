@@ -8,16 +8,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cohart20.dao.UserDAO;
 import com.cohart20.pojo.User;
+import com.cohart20.service.UserService;
 
 @RestController
-public class FirstController {
+public class UserController {
 
+//	@RequestMapping("/gettUserr/{uid}")
+//	public User getUser(@PathVariable String uid) throws Exception {
+//		
+//		UserDAO userDao = new UserDAO();
+//		
+//		User user = userDao.getUser(uid);
+//		
+//		return user;
+//	}	
+	
 	@RequestMapping("/gettUserr/{uid}")
 	public User getUser(@PathVariable String uid) throws Exception {
 		
-		UserDAO userDao = new UserDAO();
+		UserService userService = new UserService();
 		
-		User user = userDao.getUser(uid);
+		User user = userService.getUser(uid);
 		
 		return user;
 	}	

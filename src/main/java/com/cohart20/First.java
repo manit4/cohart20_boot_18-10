@@ -7,12 +7,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cohart20.pojo.User;
 
-@RestController
+@RestController//RestController annotation is used to annotate class or controller and returns data either in plain-text, JSON or XML...
 public class First {
 	
 	@RequestMapping("/message")
@@ -31,8 +32,8 @@ public class First {
 		return 35.56;
 	}
 	
-	@RequestMapping("/getUser")
-	public User gertUserDetails() {
+	@RequestMapping("/getUserDetail")
+	public User getUserDetails() {
 		return new User("100", "ama@123", "Ama Gunasekhara", "ama@yahoo.com");
 				
 	}
@@ -75,8 +76,62 @@ public class First {
 			users.add(user);
 		}
 		
-		return users;
-		
+		return users;	
 	}
+	
+//	@RequestMapping("/getUser")
+//	public User getUser() throws Exception {
+//		
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/second_assignment", "root", "root");
+//		
+//		PreparedStatement pstmt = conn.prepareStatement("select * from user where id = ?");
+//		
+//		pstmt.setString(1, "ali@123");
+//		
+//		ResultSet rs = pstmt.executeQuery();
+//		
+//		rs.next();
+//		
+//		String id = rs.getString(1);
+//		String password = rs.getString(2);
+//		String name = rs.getString(3);
+//		String email = rs.getString(4);
+//		
+//		User user = new User(id, password, name, email);
+//		
+//		return user;
+//		
+//	}
 
+	@RequestMapping("/user/getUser/{uid}")
+	public User getUser(@PathVariable String uid) throws Exception {
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/second_assignment", "root", "root");
+		
+		PreparedStatement pstmt = conn.prepareStatement("select * from user where id = ?");
+		
+		pstmt.setString(1, uid);
+		
+		User user = null;
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			String id = rs.getString(1);
+			String password = rs.getString(2);
+			String name = rs.getString(3);
+			String email = rs.getString(4);
+			
+			user = new User(id, password, name, email);
+		}
+		else {
+			user = null;
+		}
+		return user;
+	}
+	
 }

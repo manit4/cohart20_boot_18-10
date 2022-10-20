@@ -69,7 +69,8 @@ public class HomeController {
 //	}
 
 	@RequestMapping( value = "/register", method = RequestMethod.POST)
-	public String register(User user) throws Exception {
+	public String register(User user) throws Exception {//This User user argument in the register method automatically binds the data from the request
+														//and keep it in the User Object...
 
 		UserService userService = new UserService();
 		
@@ -77,6 +78,8 @@ public class HomeController {
 		
 		return "index";
 	}
+	
+	
 	
 	
 }

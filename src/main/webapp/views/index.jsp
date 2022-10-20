@@ -16,17 +16,17 @@
 		
 		<h3 style="margin-left: 500px; color: Blue">Enter your credentials!!</h3>
 
-	<form>
+	<form action="login" method="post">
 		<div style="margin-left: 500px; margin-right: 500px" class="form-group">
 			<div>
-				<label for="exampleInputEmail1">Username</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Username">
+				<label>Username</label> <input type="text"
+					class="form-control"
+					placeholder="Enter Username" name="username">
 			</div>
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label> <input
-					type="password" class="form-control" id="exampleInputPassword1"
-					placeholder="Password">
+					type="password" class="form-control"
+					placeholder="Password" name="password">
 			</div>
 		</div>
 		<button style="margin-left: 600px" type="submit" class="btn btn-primary">Login</button><br><br>

@@ -16,59 +16,59 @@ import com.cohart20.to.User;
 @RestController
 public class Second19_10 {
 	
-	@RequestMapping("/getUser/{uid}")
-	public User getUser(@PathVariable String uid) throws Exception {
-		
-		Connection conn = getConnection();
-		
-		PreparedStatement pstmt = conn.prepareStatement("select * from user where id = ?");
-		
-		pstmt.setString(1, uid);
-		
-		User user = null;
-		
-		ResultSet rs = pstmt.executeQuery();
-		
-		if(rs.next()) {
-			String id = rs.getString(1);
-			String password = rs.getString(2);
-			String name = rs.getString(3);
-			String email = rs.getString(4);
-			
-			user = new User(id, password, name, email);
-		}
-		else {
-			user = null;
-		}
-		return user;
-	}
+//	@RequestMapping("/getUser/{uid}")
+//	public User getUser(@PathVariable String uid) throws Exception {
+//		
+//		Connection conn = getConnection();
+//		
+//		PreparedStatement pstmt = conn.prepareStatement("select * from user where id = ?");
+//		
+//		pstmt.setString(1, uid);
+//		
+//		User user = null;
+//		
+//		ResultSet rs = pstmt.executeQuery();
+//		
+//		if(rs.next()) {
+//			String id = rs.getString(1);
+//			String password = rs.getString(2);
+//			String name = rs.getString(3);
+//			String email = rs.getString(4);
+//			
+//			user = new User(id, password, name, email);
+//		}
+//		else {
+//			user = null;
+//		}
+//		return user;
+//	}
 	
 	
-	@RequestMapping("/getAllUsers")
-	public List<User> getDBUsers() throws Exception {
-		
-		Connection conn = getConnection();
-		
-		PreparedStatement pstmt = conn.prepareStatement("select * from user");
-		
-		ResultSet rs = pstmt.executeQuery();
-		
-		List<User> users = new ArrayList<User>();
-		
-		while(rs.next()) {
-			
-			String id = rs.getString(1);
-			String password = rs.getString(2);
-			String name = rs.getString(3);
-			String email = rs.getString(4);
-			
-			User user = new User(id, password, name, email);
-			
-			users.add(user);
-		}
-		
-		return users;	
-	}
+//	@RequestMapping("/getAllUsers")
+//	public List<User> getDBUsers() throws Exception {
+//		
+//		Connection conn = getConnection();
+//		
+//		PreparedStatement pstmt = conn.prepareStatement("select * from user");
+//		
+//		ResultSet rs = pstmt.executeQuery();
+//		
+//		List<User> users = new ArrayList<User>();
+//		
+//		while(rs.next()) {
+//			
+//			String id = rs.getString(1);
+//			String password = rs.getString(2);
+//			String name = rs.getString(3);
+//			String email = rs.getString(4);
+//			
+//			User user = new User(id, password, name, email);
+//			
+//			users.add(user);
+//		}
+//		
+//		return users;	
+//	}
 
 	public Connection getConnection() throws Exception {
 		

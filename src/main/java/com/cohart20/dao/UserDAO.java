@@ -87,6 +87,24 @@ public class UserDAO {
 
 		pstmt.execute();
 	}
+	
+	public boolean loginSuccess(String username, String password) throws Exception {
+		
+		boolean loginSuccess = false;
+		
+		Connection conn = DBUtils.getConnection();
 
+		PreparedStatement pstmt = conn.prepareStatement("select * from user where username = ? and password = ?");
+		
+		pstmt.setString(1, username);
+		pstmt.setString(2, password);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			loginSuccess = true;
+		}
+		return loginSuccess;
+	}
 }
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +11,11 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1 style="margin-left: 250px">Welcome to Cohart20 Ecommerce
+
+<h1 style="margin-left: 250px">Cohart20 Ecommerce
 		Application</h1><br><br>
-		
-		<h3 style="margin-left: 500px; color: Blue">Enter your credentials!!</h3>
+
+<h3 style="margin-left: 400px; color: Blue">Enter your Details for Registering with us!!</h3>
 
 	<form>
 		<div style="margin-left: 500px; margin-right: 500px" class="form-group">
@@ -28,10 +29,23 @@
 					type="password" class="form-control" id="exampleInputPassword1"
 					placeholder="Password">
 			</div>
+			<div>
+				<label for="exampleInputEmail1">First Name</label> <input type="email"
+					class="form-control" id="exampleInputEmail1"
+					aria-describedby="emailHelp" placeholder="Enter First Name">
+			</div>
+			<div>
+				<label for="exampleInputEmail1">Last Name</label> <input type="email"
+					class="form-control" id="exampleInputEmail1"
+					aria-describedby="emailHelp" placeholder="Enter Last Name">
+			</div>
+			<div>
+				<label for="exampleInputEmail1">Email</label> <input type="email"
+					class="form-control" id="exampleInputEmail1"
+					aria-describedby="emailHelp" placeholder="Enter Email Address">
+			</div>
 		</div>
-		<button style="margin-left: 600px" type="submit" class="btn btn-primary">Login</button><br><br>
-		
-		<h4><a style="margin-left: 500px" href="registrationPage">New User? Register Here</a></h4>
+		<button style="margin-left: 600px" type="submit" class="btn btn-primary">Register</button><br><br>
 	</form>
 </body>
 </html>

@@ -13,5 +13,12 @@ public class UserService {
 		
 		return user;
 	}
+	
+	public void save(String username, String password, String firstName, String lastName, String email) throws Exception {
+		
+		UserDAO userDao = new UserDAO();
+		
+		userDao.saveUser(username, password, firstName, lastName, email);
+	}
 
 }

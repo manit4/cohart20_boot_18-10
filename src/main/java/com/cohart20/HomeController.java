@@ -3,6 +3,9 @@ package com.cohart20;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cohart20.dao.UserDAO;
+import com.cohart20.service.UserService;
+
 
 @Controller
 public class HomeController {
@@ -28,10 +31,19 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/register")
-	public String register(String username, String password, String firstName, String lastName, String email) {
+	public String register(String username, String password, String firstName, String lastName, String email) throws Exception {
 		
-		System.out.println(username+", "+lastName+", "+firstName+", "+password+", "+email);
+		System.out.println(username+", "+lastName+", "+firstName+", "+password+", "+email);//Sysout is used for debugging purpose and the 
+							//output is printed on the server' console but never be the part of the response.... 
 		
+		UserService userService = new UserService();
+		
+		userService.save(username, password, firstName, lastName, email);
+		
+		
+//		UserDAO userDao = new UserDAO();
+//		
+//		userDao.saveUser(username, password, firstName, lastName, email);
 		
 		return "index";
 	}

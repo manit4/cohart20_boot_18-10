@@ -9,7 +9,7 @@ public class DBUtils {
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/second_assignment", "root", "root");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "root");
 
 		return conn;
 	}	

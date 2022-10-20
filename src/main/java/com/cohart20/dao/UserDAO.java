@@ -57,5 +57,19 @@ public class UserDAO {
 		
 		return users;
 	}
-
+	
+	public void saveUser(String username, String password, String firstName, String lastName, String email) throws Exception {
+		
+		Connection conn = DBUtils.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement("insert into user values(?, ?, ?, ?, ?)");
+		
+		pstmt.setString(1, username);
+		pstmt.setString(2, password);
+		pstmt.setString(3, firstName);
+		pstmt.setString(4, lastName);
+		pstmt.setString(5, email);
+		
+		pstmt.execute();
+	}
 }

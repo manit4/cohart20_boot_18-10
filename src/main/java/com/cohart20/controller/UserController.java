@@ -52,9 +52,13 @@ public class UserController {
 		
 		System.out.println("inside login"+username+",  "+password);
 		
-		UserDAO userDao = new UserDAO();
+//		UserDAO userDao = new UserDAO();
+//		
+//		boolean loginStatus = userDao.loginSuccess(username, password);
 		
-		boolean loginStatus = userDao.loginSuccess(username, password);
+		UserService userService = new UserService();
+		
+		boolean loginStatus = userService.login(username, password);
 		
 		if(loginStatus) {
 			return "welcome";

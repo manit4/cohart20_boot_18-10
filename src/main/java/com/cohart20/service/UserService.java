@@ -34,4 +34,13 @@ public class UserService {
 
 		userDao.saveUser(user);
 	}
+	
+	public boolean login(String username, String password) throws Exception {
+		
+		UserDAO userDao = new UserDAO();
+		
+		boolean loginSuccess = userDao.loginSuccess(username, password);
+		
+		return loginSuccess;
+	}
 }

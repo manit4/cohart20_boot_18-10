@@ -17,7 +17,7 @@ public class HomeController {
 						//except the "localhost:8081". So we follow this way if you have decided any API needs to be executed and rendering
 						//index or Home page in response to user...
 	public String getHomePage() {
-		
+		System.out.println("inside getHomepage()");
 		return "index";
 	}
 	
@@ -25,5 +25,14 @@ public class HomeController {
 	public String registrationPage() {
 		
 		return "registration";
+	}
+	
+	@RequestMapping("/register")
+	public String register(String username, String password, String firstName, String lastName, String email) {
+		
+		System.out.println(username+", "+lastName+", "+firstName+", "+password+", "+email);
+		
+		
+		return "index";
 	}
 }

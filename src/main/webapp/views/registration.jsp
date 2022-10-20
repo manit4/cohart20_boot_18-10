@@ -17,35 +17,37 @@
 
 <h3 style="margin-left: 400px; color: Blue">Enter your Details for Registering with us!!</h3>
 
-	<form>
+	<form action="register" method="post">
 		<div style="margin-left: 500px; margin-right: 500px" class="form-group">
 			<div>
-				<label for="exampleInputEmail1">Username</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Username">
+				<label for="exampleInputEmail1">Username</label> <input type="text"
+					class="form-control"
+					 placeholder="Enter Username" name="username">
 			</div>
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label> <input
-					type="password" class="form-control" id="exampleInputPassword1"
-					placeholder="Password">
+					type="password" class="form-control"
+					placeholder="Password" name="password">
 			</div>
 			<div>
-				<label for="exampleInputEmail1">First Name</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter First Name">
+				<label for="exampleInputEmail1">First Name</label> <input type="text"
+					class="form-control"
+					 placeholder="Enter First Name" name="firstName">
 			</div>
 			<div>
-				<label for="exampleInputEmail1">Last Name</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Last Name">
+				<label for="exampleInputEmail1">Last Name</label> <input type="text"
+					class="form-control"
+					 placeholder="Enter Last Name" name="lastName">
 			</div>
 			<div>
-				<label for="exampleInputEmail1">Email</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Email Address">
+				<label for="exampleInputEmail1">Email</label> <input type="text"
+					class="form-control"
+					 placeholder="Enter Email Address" name="email">
 			</div>
 		</div>
 		<button style="margin-left: 600px" type="submit" class="btn btn-primary">Register</button><br><br>
 	</form>
+	
+	<h4><a style="margin-left: 500px" href="/"><< Back to Login page</a></h4>
 </body>
 </html>

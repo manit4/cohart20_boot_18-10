@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cohart20.db.DBUtils;
-import com.cohart20.pojo.User;
+import com.cohart20.to.User;
 
 @RestController
 public class Third_19_10 {

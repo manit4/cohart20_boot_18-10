@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cohart20.pojo.User;
+import com.cohart20.to.User;
 
 @RestController
 public class Second19_10 {

@@ -87,24 +87,75 @@ public class UserDAO {
 
 		pstmt.execute();
 	}
-	
+
 	public boolean loginSuccess(String username, String password) throws Exception {
-		
+
 		boolean loginSuccess = false;
-		
+
 		Connection conn = DBUtils.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement("select * from user where username = ? and password = ?");
-		
+
 		pstmt.setString(1, username);
 		pstmt.setString(2, password);
-		
+
 		ResultSet rs = pstmt.executeQuery();
-		
+
 		if(rs.next()) {
 			loginSuccess = true;
 		}
 		return loginSuccess;
 	}
+
+	public User loginSuccess1(String username, String password) throws Exception {
+
+		User user = null;
+
+		Connection conn = DBUtils.getConnection();
+
+		PreparedStatement pstmt = conn.prepareStatement("select * from user where username = ? and password = ?");
+
+		pstmt.setString(1, username);
+		pstmt.setString(2, password);
+
+		ResultSet rs = pstmt.executeQuery();
+
+		if(rs.next()) {
+			String id = rs.getString(1);
+			String password1 = rs.getString(2);
+			String firstName = rs.getString(3);
+			String lastName = rs.getString(4);
+			String email = rs.getString(4);
+
+			user = new User(id, password, firstName, lastName, email);
+		}
+		return user;
+	}
+	
+	public User getUser(String username, String password) throws Exception {
+
+		Connection conn = DBUtils.getConnection();
+
+		PreparedStatement pstmt = conn.prepareStatement("select * from user where username = ? and password = ?");
+
+		pstmt.setString(1, username);
+		pstmt.setString(2, password);
+
+		ResultSet rs = pstmt.executeQuery();
+		
+		User user = null;
+
+		if(rs.next()) {
+			String id = rs.getString(1);
+			String password1 = rs.getString(2);
+			String firstName = rs.getString(3);
+			String lastName = rs.getString(4);
+			String email = rs.getString(4);
+
+			user = new User(id, password, firstName, lastName, email);
+		}
+		return user;
+	}
+
 }
 

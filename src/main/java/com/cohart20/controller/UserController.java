@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.cohart20.dao.UserDAO;
 import com.cohart20.service.UserService;
@@ -47,8 +48,29 @@ public class UserController {
 //		
 //	}
 	
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public String login(String username, String password) throws Exception {
+//		
+//		System.out.println("inside login"+username+",  "+password);
+//		
+////		UserDAO userDao = new UserDAO();
+////		
+////		boolean loginStatus = userDao.loginSuccess(username, password);
+//		
+//		UserService userService = new UserService();
+//		
+//		boolean loginStatus = userService.login(username, password);
+//		
+//		if(loginStatus) {
+//			return "welcome";
+//		}
+//		else {
+//			return "index";
+//		}
+//	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(String username, String password) throws Exception {
+	public ModelAndView login(String username, String password) throws Exception {
 		
 		System.out.println("inside login"+username+",  "+password);
 		
@@ -58,13 +80,17 @@ public class UserController {
 		
 		UserService userService = new UserService();
 		
-		boolean loginStatus = userService.login(username, password);
+		User user = userService.login1(username, password);
 		
-		if(loginStatus) {
-			return "welcome";
+		if(user != null) {
+			ModelAndView modelAndView = new ModelAndView("welcome");
+			modelAndView.addObject("userData", user);
+			return modelAndView;
 		}
 		else {
-			return "index";
+			ModelAndView modelAndView = new ModelAndView("index");
+			return modelAndView;
 		}
 	}
+	
 }
